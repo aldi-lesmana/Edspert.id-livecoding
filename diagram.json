@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "author": "Aldi Lesmana",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 25.8, "left": -170, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 29.4, "left": -509.4, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -224,
+      "left": -167.2,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -38.1,
+      "left": 71.4,
+      "attrs": { "temperature": "9", "humidity": "74" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 128.2,
+      "left": 66.35,
+      "rotate": 270,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "bb1:28t.e", "bb1:bn.23", "black", [ "v0" ] ],
+    [ "bb1:25t.e", "bb1:bp.21", "red", [ "v0" ] ],
+    [ "bb1:bp.22", "bb1:26b.j", "red", [ "v-20.1", "h-17.6" ] ],
+    [ "uno:5V", "bb1:bp.1", "red", [ "v38.3", "h157.4", "v-47.1" ] ],
+    [ "uno:GND.2", "bb1:bn.1", "black", [ "v47.9", "h157.5", "v-46.7" ] ],
+    [ "lcd1:VCC", "bb1:tp.1", "red", [ "h-28.8", "v201.7" ] ],
+    [ "lcd1:GND", "bb1:tn.1", "black", [ "h-19.2", "v220.9" ] ],
+    [ "uno:A4", "lcd1:SDA", "violet", [ "v28.7", "h61.8", "v-403.4" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h-48", "v384.3", "h-42.7" ] ],
+    [ "bb1:26t.c", "uno:7", "blue", [ "h-38.4", "v-96", "h-378" ] ],
+    [ "bb1:tp.4", "bb1:bp.4", "red", [ "v0" ] ],
+    [ "bb1:tn.5", "bb1:bn.5", "black", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:25t.a", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:26t.a", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:27t.a", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:28t.a", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:26b.h", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:26t.d", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
